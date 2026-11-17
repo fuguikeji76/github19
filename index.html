@@ -12,8 +12,8 @@
     <title>大红马</title>
     <meta name="keywords" content="大红马：十年老平台，信誉保障、福利优厚、优质服务，大红马长期招收实力代理、合作伙伴，共同携手创造辉煌！">
     <meta name="description" content="大红马，您值得信任的集团品牌">
- <style>
-        /* 金色奢华背景 */
+<style>
+        /* 红橙渐变中国风背景 */
         html {
             background: linear-gradient(180deg, #2a1f0f 0%, #1a1208 50%, #0f0904 100%) !important;
             min-height: 100vh;
@@ -27,109 +27,259 @@
             padding: 0;
         }
         
-        /* ===== 金币飘落效果（优化版，减少70%） ===== */
+        /* ===== 中国风背景元素 ===== */
         
-        .coins-container {
+        /* 背景动态光晕 */
+        .glow-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.35;
+            animation: float-glow 8s ease-in-out infinite;
+        }
+
+        .glow-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #ff1744 0%, transparent 70%);
+            top: 10%;
+            left: 10%;
+        }
+
+        .glow-2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #ff5722 0%, transparent 70%);
+            top: 60%;
+            right: 15%;
+            animation-delay: -3s;
+        }
+
+        .glow-3 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, #ff7043 0%, transparent 70%);
+            bottom: 10%;
+            left: 30%;
+            animation-delay: -5s;
+        }
+
+        @keyframes float-glow {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.1); }
+            50% { transform: translate(-20px, 20px) scale(0.9); }
+            75% { transform: translate(20px, 10px) scale(1.05); }
+        }
+
+        /* 祥云动画 */
+        .cloud {
+            position: fixed;
+            opacity: 0.2;
+            animation: drift linear infinite;
+            pointer-events: none;
             z-index: 1;
+        }
+
+        .cloud svg {
+            width: 100%;
+            height: 100%;
+            fill: rgba(255, 255, 255, 0.85);
+        }
+
+        .cloud-1 { width: 120px; height: 60px; top: 12%; left: -150px; animation-duration: 28s; }
+        .cloud-2 { width: 80px; height: 40px; top: 30%; left: -100px; animation-duration: 32s; animation-delay: -8s; }
+        .cloud-3 { width: 150px; height: 75px; top: 55%; left: -180px; animation-duration: 36s; animation-delay: -15s; }
+        .cloud-4 { width: 100px; height: 50px; top: 75%; left: -130px; animation-duration: 30s; animation-delay: -5s; }
+
+        @keyframes drift {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(100vw + 200px)); }
+        }
+
+        /* 飘落花瓣 */
+        .petal-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .petal {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(45deg, #ffb6c1, #ffc0cb);
+            border-radius: 50% 0 50% 50%;
+            opacity: 0.6;
+            animation: fall linear infinite;
+        }
+
+        .petal:nth-child(1) { left: 5%; animation-duration: 7s; }
+        .petal:nth-child(2) { left: 15%; animation-duration: 9s; animation-delay: 1s; }
+        .petal:nth-child(3) { left: 25%; animation-duration: 8s; animation-delay: 2s; }
+        .petal:nth-child(4) { left: 35%; animation-duration: 10s; animation-delay: 0.5s; }
+        .petal:nth-child(5) { left: 45%; animation-duration: 7.5s; animation-delay: 1.5s; }
+        .petal:nth-child(6) { left: 55%; animation-duration: 8.5s; animation-delay: 2.5s; }
+        .petal:nth-child(7) { left: 65%; animation-duration: 9.5s; animation-delay: 0.8s; }
+        .petal:nth-child(8) { left: 75%; animation-duration: 7s; animation-delay: 1.8s; }
+        .petal:nth-child(9) { left: 85%; animation-duration: 8s; animation-delay: 3s; }
+        .petal:nth-child(10) { left: 95%; animation-duration: 9s; animation-delay: 2.2s; }
+
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* 灯笼 */
+        .lanterns {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .lantern {
+            position: absolute;
+            width: 45px;
+            height: 65px;
+            animation: swing 3s ease-in-out infinite;
+        }
+
+        .lantern-left { top: 25px; left: 25px; }
+        .lantern-right { top: 25px; right: 25px; animation-delay: -1.5s; }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        /* ===== 红色中国元素飘落 ===== */
+        
+        .chinese-items-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
             overflow: hidden;
         }
         
-        .coin {
+        .chinese-item {
             position: absolute;
-            font-size: 24px;
-            animation: coin-fall linear infinite;
-            text-shadow: 0 0 10px rgba(255,215,0,0.8);
+            font-size: 26px;
+            animation: item-fall linear infinite;
+            text-shadow: 0 0 12px rgba(255, 68, 68, 0.8);
             will-change: transform;
         }
         
-        /* 从20个减少到6个 */
-        .coin:nth-child(1) { left: 10%; animation-duration: 5s; animation-delay: 0s; }
-        .coin:nth-child(2) { left: 35%; animation-duration: 6s; animation-delay: 2s; }
-        .coin:nth-child(3) { left: 60%; animation-duration: 5.5s; animation-delay: 1s; }
-        .coin:nth-child(4) { left: 85%; animation-duration: 7s; animation-delay: 3s; }
-        .coin:nth-child(5) { left: 20%; animation-duration: 5s; animation-delay: 4s; }
-        .coin:nth-child(6) { left: 70%; animation-duration: 6s; animation-delay: 2.5s; }
+        .chinese-item:nth-child(1) { left: 8%; animation-duration: 5.5s; animation-delay: 0s; }
+        .chinese-item:nth-child(2) { left: 22%; animation-duration: 6.5s; animation-delay: 1s; }
+        .chinese-item:nth-child(3) { left: 38%; animation-duration: 5s; animation-delay: 2s; }
+        .chinese-item:nth-child(4) { left: 52%; animation-duration: 7s; animation-delay: 0.5s; }
+        .chinese-item:nth-child(5) { left: 68%; animation-duration: 5.8s; animation-delay: 3s; }
+        .chinese-item:nth-child(6) { left: 82%; animation-duration: 6s; animation-delay: 1.5s; }
+        .chinese-item:nth-child(7) { left: 15%; animation-duration: 5.2s; animation-delay: 4s; }
+        .chinese-item:nth-child(8) { left: 45%; animation-duration: 6.8s; animation-delay: 2.5s; }
         
-        @keyframes coin-fall {
+        @keyframes item-fall {
             0% {
                 transform: translateY(-50px) rotate(0deg) scale(1);
-                opacity: 1;
+                opacity: 0.9;
             }
             100% {
-                transform: translateY(calc(100vh + 50px)) rotate(720deg) scale(0.8);
+                transform: translateY(calc(100vh + 50px)) rotate(360deg) scale(0.85);
                 opacity: 0.3;
             }
         }
         
-        /* 金币闪光（从5个减少到1个） */
-        .coin-shine {
+        /* 红包闪光 */
+        .redpacket-shine {
             position: absolute;
-            width: 30px;
-            height: 30px;
-            background: radial-gradient(circle, rgba(255,215,0,0.8), transparent);
+            width: 35px;
+            height: 35px;
+            background: radial-gradient(circle, rgba(255, 68, 68, 0.7), transparent);
             border-radius: 50%;
-            animation: shine-pulse 3s ease-in-out infinite;
+            animation: red-shine-pulse 3s ease-in-out infinite;
             will-change: transform, opacity;
+            z-index: 3;
         }
         
-        .coin-shine:nth-child(1) { left: 50%; top: 30%; animation-delay: 0s; }
+        .redpacket-shine:nth-child(1) { left: 50%; top: 30%; animation-delay: 0s; }
+        .redpacket-shine:nth-child(2) { left: 25%; top: 60%; animation-delay: 1.5s; }
+        .redpacket-shine:nth-child(3) { left: 75%; top: 40%; animation-delay: 3s; }
         
-        @keyframes shine-pulse {
+        @keyframes red-shine-pulse {
             0%, 100% { transform: scale(0.3); opacity: 0; }
-            50% { transform: scale(1.2); opacity: 0.6; }
+            50% { transform: scale(1.3); opacity: 0.5; }
         }
         
-        /* 金色粒子（从6个减少到2个） */
-        .gold-particles {
+        /* 红色粒子 */
+        .red-particles {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1;
+            z-index: 3;
         }
         
-        .gold-particle {
+        .red-particle {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #ffd700;
+            width: 3px;
+            height: 3px;
+            background: #ff4444;
             border-radius: 50%;
-            box-shadow: 0 0 6px #ffd700;
-            animation: gold-float 12s infinite linear;
+            box-shadow: 0 0 8px #ff4444;
+            animation: red-float 10s infinite linear;
             will-change: transform, opacity;
         }
         
-        .gold-particle:nth-child(1) { left: 25%; animation-delay: 0s; }
-        .gold-particle:nth-child(2) { left: 75%; animation-delay: 6s; }
+        .red-particle:nth-child(1) { left: 20%; animation-delay: 0s; }
+        .red-particle:nth-child(2) { left: 40%; animation-delay: 2s; }
+        .red-particle:nth-child(3) { left: 60%; animation-delay: 4s; }
+        .red-particle:nth-child(4) { left: 80%; animation-delay: 6s; }
+        .red-particle:nth-child(5) { left: 30%; animation-delay: 8s; }
         
-        @keyframes gold-float {
+        @keyframes red-float {
             0% { transform: translateY(0); opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
+            10% { opacity: 0.9; }
+            90% { opacity: 0.9; }
             100% { transform: translateY(-100vh); opacity: 0; }
         }
         
-        /* 金色光晕（保留） */
-        .gold-glow {
+        /* 红色光晕 */
+        .red-glow {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at 50% 0%, rgba(255,215,0,0.15) 0%, transparent 50%);
+            background: radial-gradient(ellipse at 50% 0%, rgba(255, 68, 68, 0.12) 0%, transparent 50%);
             pointer-events: none;
-            z-index: 1;
+            z-index: 3;
         }
         
-        /* 彩带效果（从9个减少到3个） */
+        /* 红色喜庆彩带 */
         .confetti {
             position: fixed;
             top: 0;
@@ -137,24 +287,27 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1;
+            z-index: 3;
         }
         
         .confetti-piece {
             position: absolute;
-            width: 6px;
-            height: 12px;
-            animation: confetti-fall 7s ease-in infinite;
+            width: 8px;
+            height: 15px;
+            animation: confetti-fall 6s ease-in infinite;
             will-change: transform;
+            border-radius: 2px;
         }
         
-        .confetti-piece:nth-child(1) { background: #ffd700; left: 20%; animation-delay: 0s; }
-        .confetti-piece:nth-child(2) { background: #ff6b6b; left: 50%; animation-delay: 3s; }
-        .confetti-piece:nth-child(3) { background: #4ecdc4; left: 80%; animation-delay: 1.5s; }
+        .confetti-piece:nth-child(1) { background: linear-gradient(180deg, #ff4444, #cc0000); left: 15%; animation-delay: 0s; }
+        .confetti-piece:nth-child(2) { background: linear-gradient(180deg, #ffd700, #ffaa00); left: 35%; animation-delay: 1.5s; }
+        .confetti-piece:nth-child(3) { background: linear-gradient(180deg, #ff6b6b, #ff4444); left: 55%; animation-delay: 3s; }
+        .confetti-piece:nth-child(4) { background: linear-gradient(180deg, #ff8c42, #ff6b35); left: 75%; animation-delay: 4.5s; }
+        .confetti-piece:nth-child(5) { background: linear-gradient(180deg, #ffd700, #ffcc00); left: 90%; animation-delay: 2s; }
         
         @keyframes confetti-fall {
-            0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0.2; }
+            0% { transform: translateY(-20px) rotate(0deg); opacity: 0.9; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0.2; }
         }
         
         /* ===== 页面结构 ===== */
@@ -166,7 +319,7 @@
             min-height: 100vh;
         }
         
-        /* app-item 使用 bg3.png */
+        /* app-item 使用 bg3.webp */
         .page .cont-box .app-list .app-item {
             background: url("./images/bg3.webp") no-repeat !important;
             background-size: 100% 100% !important;
@@ -175,45 +328,50 @@
         }
         
         .page .cont-box .notice-bar {
-            background: linear-gradient(90deg, #4a3a20 0%, #2a1f0f 100%) !important;
-            border: 1px solid rgba(212,175,55,0.3);
-            box-shadow: 0 0 15px rgba(212,175,55,0.2);
+            background: linear-gradient(90deg, rgba(139, 0, 0, 0.8) 0%, rgba(178, 34, 34, 0.8) 100%) !important;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
             position: relative;
             z-index: 10;
         }
         
-        /* 快捷入口图片圆角 */
+        /* 快捷入口图片圆角 - 红橙背景适配 */
         .page .cont-box .app-box a {
             border-radius: 12px;
             overflow: hidden;
             display: block;
-            box-shadow: 0 0 15px rgba(255,215,0,0.3);
+            box-shadow: 0 0 15px rgba(139, 0, 0, 0.4);
             transition: all 0.3s;
+            border: 2px solid rgba(255, 215, 0, 0.3);
         }
         .page .cont-box .app-box a:hover {
-            box-shadow: 0 0 25px rgba(255,215,0,0.5);
+            box-shadow: 0 0 25px rgba(255, 68, 68, 0.6);
             transform: scale(1.05);
+            border-color: rgba(255, 215, 0, 0.6);
         }
         .page .cont-box .app-box a img {
             border-radius: 12px;
             display: block;
         }
         
-        /* 文字颜色 */
-
-        /* 下载按钮金色效果 */
-.download-text {
-font-weight: 900;
-/* 纵向上下流金：top浅金→中间亮黄金→底部暗鎏金 */
-background: linear-gradient(to bottom, #fff8d2, #ffdd70, #c89c3c);
--webkit-background-clip: text;
-background-clip: text;
-color: transparent;
--webkit-text-fill-color: transparent;
-overflow: hidden;
-white-space: nowrap;
-text-overflow: ellipsis;
-}
+        /* 文字颜色 - 适配红橙背景 */
+        .page .cont-box .app-list .app-item .info-box .app-info .top-info .info .name {
+            color: #ffffff !important;
+            text-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+        }
+        .page .cont-box .app-list .app-item .info-box .app-info .top-info .info .link {
+            color: #ffd700 !important;
+        }
+        
+        /* 下载按钮文字效果 - 红橙渐变 */
+        .download-text {
+            font-weight: bold;
+            background: linear-gradient(90deg, #ffd700, #ff6b6b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.3);
+        }
         
         /* 原有样式 */
         .lang_radio { display: none; }
@@ -237,42 +395,115 @@ text-overflow: ellipsis;
     </style>
 </head>
 <body>
-    <!-- 金币雨背景（优化版，减少70%） -->
-    <div class="coins-container">
-        <div class="coin">💰</div>
-        <div class="coin">🪙</div>
-        <div class="coin">💎</div>
-        <div class="coin">💰</div>
-        <div class="coin">🪙</div>
-        <div class="coin">💎</div>
+    <!-- 中国风背景元素 -->
+    <div class="glow-container">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
+    </div>
 
+    <!-- 祥云 -->
+    <div class="cloud cloud-1">
+        <svg viewBox="0 0 100 50"><path d="M10,25 Q20,10 35,20 Q45,5 60,18 Q75,8 90,22 Q95,25 90,28 Q75,32 60,28 Q45,35 35,28 Q20,35 10,28 Q5,25 10,25"/></svg>
     </div>
-        <div class="coins-container">
-        <div class="coin">💰</div>
-        <div class="coin">🪙</div>
-        <div class="coin">💎</div>
-        <div class="coin">💰</div>
-        <div class="coin">🪙</div>
-        <div class="coin">💎</div>
+    <div class="cloud cloud-2">
+        <svg viewBox="0 0 100 50"><path d="M10,25 Q20,12 35,22 Q45,8 60,20 Q75,10 90,24 Q95,25 90,27 Q75,30 60,26 Q45,32 35,26 Q20,32 10,27 Q5,25 10,25"/></svg>
+    </div>
+    <div class="cloud cloud-3">
+        <svg viewBox="0 0 100 50"><path d="M10,25 Q20,10 35,20 Q45,5 60,18 Q75,8 90,22 Q95,25 90,28 Q75,32 60,28 Q45,35 35,28 Q20,35 10,28 Q5,25 10,25"/></svg>
+    </div>
+    <div class="cloud cloud-4">
+        <svg viewBox="0 0 100 50"><path d="M10,25 Q20,12 35,22 Q45,8 60,20 Q75,10 90,24 Q95,25 90,27 Q75,30 60,26 Q45,32 35,26 Q20,32 10,27 Q5,25 10,25"/></svg>
+    </div>
+
+    <!-- 飘落花瓣 -->
+    <div class="petal-container">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+    </div>
+
+    <!-- 灯笼 -->
+    <div class="lanterns">
+        <div class="lantern lantern-left">
+            <svg viewBox="0 0 60 80">
+                <line x1="30" y1="0" x2="30" y2="15" stroke="#ffd700" stroke-width="2"/>
+                <ellipse cx="30" cy="18" rx="15" ry="5" fill="#8b0000"/>
+                <ellipse cx="30" cy="45" rx="25" ry="30" fill="#dc143c"/>
+                <line x1="15" y1="25" x2="45" y2="25" stroke="#8b0000" stroke-width="1"/>
+                <line x1="10" y1="35" x2="50" y2="35" stroke="#8b0000" stroke-width="1"/>
+                <line x1="10" y1="45" x2="50" y2="45" stroke="#8b0000" stroke-width="1"/>
+                <line x1="10" y1="55" x2="50" y2="55" stroke="#8b0000" stroke-width="1"/>
+                <line x1="15" y1="65" x2="45" y2="65" stroke="#8b0000" stroke-width="1"/>
+                <text x="30" y="50" text-anchor="middle" fill="#ffd700" font-size="18" font-weight="bold">福</text>
+                <ellipse cx="30" cy="72" rx="12" ry="4" fill="#8b0000"/>
+                <line x1="25" y1="75" x2="23" y2="85" stroke="#ffd700" stroke-width="1.5"/>
+                <line x1="30" y1="76" x2="30" y2="88" stroke="#ffd700" stroke-width="1.5"/>
+                <line x1="35" y1="75" x2="37" y2="85" stroke="#ffd700" stroke-width="1.5"/>
+            </svg>
+        </div>
+        <div class="lantern lantern-right">
+            <svg viewBox="0 0 60 80">
+                <line x1="30" y1="0" x2="30" y2="15" stroke="#ffd700" stroke-width="2"/>
+                <ellipse cx="30" cy="18" rx="15" ry="5" fill="#8b0000"/>
+                <ellipse cx="30" cy="45" rx="25" ry="30" fill="#dc143c"/>
+                <line x1="15" y1="25" x2="45" y2="25" stroke="#8b0000" stroke-width="1"/>
+                <line x1="10" y1="35" x2="50" y2="35" stroke="#8b0000" stroke-width="1"/>
+                <line x1="10" y1="45" x2="50" y2="45" stroke="#8b0000" stroke-width="1"/>
+                <line x1="10" y1="55" x2="50" y2="55" stroke="#8b0000" stroke-width="1"/>
+                <line x1="15" y1="65" x2="45" y2="65" stroke="#8b0000" stroke-width="1"/>
+                <text x="30" y="50" text-anchor="middle" fill="#ffd700" font-size="18" font-weight="bold">春</text>
+                <ellipse cx="30" cy="72" rx="12" ry="4" fill="#8b0000"/>
+                <line x1="25" y1="75" x2="23" y2="85" stroke="#ffd700" stroke-width="1.5"/>
+                <line x1="30" y1="76" x2="30" y2="88" stroke="#ffd700" stroke-width="1.5"/>
+                <line x1="35" y1="75" x2="37" y2="85" stroke="#ffd700" stroke-width="1.5"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- 红色中国元素飘落 -->
+    <div class="chinese-items-container">
+        <div class="chinese-item">🧨</div>
+        <div class="chinese-item">🧧</div>
+        <div class="chinese-item">🧨</div>
+        <div class="chinese-item">🧧</div>
+        <div class="chinese-item">🧨</div>
+        <div class="chinese-item">🧧</div>
+        <div class="chinese-item">🧨</div>
+        <div class="chinese-item">🧧</div>
     </div>
     
-    <div class="coin-shine"></div>
+    <div class="redpacket-shine"></div>
+    <div class="redpacket-shine"></div>
+    <div class="redpacket-shine"></div>
     
-    <div class="gold-particles">
-        <div class="gold-particle"></div>
-        <div class="gold-particle"></div>
+    <div class="red-particles">
+        <div class="red-particle"></div>
+        <div class="red-particle"></div>
+        <div class="red-particle"></div>
+        <div class="red-particle"></div>
+        <div class="red-particle"></div>
     </div>
     
-    <div class="gold-glow"></div>
+    <div class="red-glow"></div>
     
     <div class="confetti">
         <div class="confetti-piece"></div>
         <div class="confetti-piece"></div>
         <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
     </div>
 
-
 </head>
+
 
 <body>
     <div id="app" class="page" data-v-app="">
